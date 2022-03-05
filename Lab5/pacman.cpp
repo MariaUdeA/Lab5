@@ -2,7 +2,7 @@
 
 pacman::pacman(QGraphicsItem *carr):QGraphicsPixmapItem(carr)
 {
-    setPixmap(QPixmap(":/pacmans/pixil-frame-0.png"));
+    setPixmap(QPixmap(":/pacmans/OPEN.png"));
 }
 
 void pacman::setX(int newX)

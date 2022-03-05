@@ -1,2 +1,8 @@
-<!DOCTYPE RCC>
-<RCC version="1.0"/>
+<RCC>
+    <qresource prefix="/">
+        <file>pacmans/CLOSED.png</file>
+        <file>pacmans/gHOST.png</file>
+        <file>pacmans/OPEN.png</file>
+        <file>pacmans/background.png</file>
+    </qresource>
+</RCC>

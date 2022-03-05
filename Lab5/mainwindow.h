@@ -22,6 +22,6 @@ private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
     pacman *player;
-    int vel=5;
+    int vel=8;
 };
 #endif // MAINWINDOW_H

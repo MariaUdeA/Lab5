@@ -586,9 +586,10 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_resource.cpp
 qrc_resource.cpp: ../Lab5/resource.qrc \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc \
-		../Lab5/pacmans/pixil-frame-0\ copy.png \
-		../Lab5/pacmans/pixil-frame-0.png \
-		../Lab5/pacmans/pixil-frame-0-4.png
+		../Lab5/pacmans/CLOSED.png \
+		../Lab5/pacmans/OPEN.png \
+		../Lab5/pacmans/gHOST.png \
+		../Lab5/pacmans/background.png
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc -name resource ../Lab5/resource.qrc -o qrc_resource.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_pacman.cpp
@@ -599,6 +600,8 @@ moc_mainwindow.cpp: ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qevent.h \
 		../Lab5/pacman.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qobject.h \
@@ -645,6 +648,8 @@ main.o: ../Lab5/main.cpp ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qevent.h \
 		../Lab5/pacman.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qobject.h \
@@ -660,6 +665,8 @@ mainwindow.o: ../Lab5/mainwindow.cpp ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/QKeyEvent \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers/qevent.h \
 		../Lab5/pacman.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qobject.h \
