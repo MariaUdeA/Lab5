@@ -17,10 +17,13 @@ public:
     int getY() const;
     void posicion();
     void posicion(int newX,int newY);
+    void animacion();
 
 private:
     int x;
     int y;
+    bool flag=true;
+    char cont=0;
 };
 
 #endif // PACMAN_H

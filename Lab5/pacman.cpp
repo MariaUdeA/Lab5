@@ -31,3 +31,17 @@ void pacman::posicion(int newX,int newY)
     y=newY;
     setPos(x,y);
 }
+
+void pacman::animacion()
+{
+    if (flag && cont<4){
+        setPixmap(QPixmap(":/pacmans/OPEN.png"));
+        flag=false;
+    }
+    if (! flag && cont>4){
+        setPixmap(QPixmap(":/pacmans/CLOSED.png"));
+        flag=true;
+    }
+    if (cont==8)  cont=0;
+    cont++;
+}
