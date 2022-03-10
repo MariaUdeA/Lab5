@@ -588,6 +588,7 @@ qrc_resource.cpp: ../Lab5/resource.qrc \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc \
 		../Lab5/pacmans/CLOSED.png \
 		../Lab5/pacmans/OPEN.png \
+		../Lab5/pacmans/estrella.png \
 		../Lab5/pacmans/gHOST.png \
 		../Lab5/pacmans/background.png
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc -name resource ../Lab5/resource.qrc -o qrc_resource.cpp
@@ -608,6 +609,9 @@ moc_mainwindow.cpp: ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=13 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang -I/Users/mariadelmar/Desktop/UdeA/SegundoSemestre/Info2/Labs/Lab5/Lab5 -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mariadelmar/Qt/6.2.1/macos/lib ../Lab5/mainwindow.h -o moc_mainwindow.cpp
 
@@ -656,6 +660,9 @@ main.o: ../Lab5/main.cpp ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Lab5/main.cpp
@@ -673,6 +680,9 @@ mainwindow.o: ../Lab5/mainwindow.cpp ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Lab5/mainwindow.cpp
 

@@ -4,7 +4,6 @@ pacman::pacman(QGraphicsItem *carr):QGraphicsPixmapItem(carr)
 {
     setPixmap(QPixmap(":/pacmans/OPEN.png"));
 }
-
 void pacman::setX(int newX)
 {
     x = newX;
@@ -31,7 +30,6 @@ void pacman::posicion(int newX,int newY)
     y=newY;
     setPos(x,y);
 }
-
 void pacman::animacion()
 {
     if (flag && cont<4){

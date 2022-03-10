@@ -24,9 +24,14 @@ private slots:
     //void hmov();
 
 private:
+    int prev_key=0;
+    int hold_key=0;
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
     pacman *player;
+    QGraphicsPixmapItem *star;
+    std::vector<QGraphicsPixmapItem*>stars;
+    std::vector <std::vector <int>> posStar;
     int numBarras=48;
     int vel=8;
     QTimer *timer;
