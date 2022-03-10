@@ -4,5 +4,6 @@
         <file>pacmans/gHOST.png</file>
         <file>pacmans/OPEN.png</file>
         <file>pacmans/background.png</file>
+        <file>pacmans/star.png</file>
     </qresource>
 </RCC>

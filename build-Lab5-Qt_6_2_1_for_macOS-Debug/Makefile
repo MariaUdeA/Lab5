@@ -54,15 +54,19 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Lab5/main.cpp \
 		../Lab5/mainwindow.cpp \
-		../Lab5/pacman.cpp qrc_resource.cpp \
+		../Lab5/pacman.cpp \
+		../Lab5/star.cpp qrc_resource.cpp \
 		moc_mainwindow.cpp \
-		moc_pacman.cpp
+		moc_pacman.cpp \
+		moc_star.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		pacman.o \
+		star.o \
 		qrc_resource.o \
 		moc_mainwindow.o \
-		moc_pacman.o
+		moc_pacman.o \
+		moc_star.o
 DIST          = /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_pre.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/device_config.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/common/unix.conf \
@@ -204,9 +208,11 @@ DIST          = /Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/spec_pre.prf 
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/yacc.prf \
 		/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/features/lex.prf \
 		../Lab5/Lab5.pro ../Lab5/mainwindow.h \
-		../Lab5/pacman.h ../Lab5/main.cpp \
+		../Lab5/pacman.h \
+		../Lab5/star.h ../Lab5/main.cpp \
 		../Lab5/mainwindow.cpp \
-		../Lab5/pacman.cpp
+		../Lab5/pacman.cpp \
+		../Lab5/star.cpp
 QMAKE_TARGET  = Lab5
 DESTDIR       = 
 TARGET        = Lab5.app/Contents/MacOS/Lab5
@@ -552,8 +558,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Lab5/resource.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents ../Lab5/mainwindow.h ../Lab5/pacman.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Lab5/main.cpp ../Lab5/mainwindow.cpp ../Lab5/pacman.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Lab5/mainwindow.h ../Lab5/pacman.h ../Lab5/star.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Lab5/main.cpp ../Lab5/mainwindow.cpp ../Lab5/pacman.cpp ../Lab5/star.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../Lab5/mainwindow.ui $(DISTDIR)/
 
 
@@ -588,14 +594,14 @@ qrc_resource.cpp: ../Lab5/resource.qrc \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc \
 		../Lab5/pacmans/CLOSED.png \
 		../Lab5/pacmans/OPEN.png \
-		../Lab5/pacmans/estrella.png \
+		../Lab5/pacmans/star.png \
 		../Lab5/pacmans/gHOST.png \
 		../Lab5/pacmans/background.png
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/rcc -name resource ../Lab5/resource.qrc -o qrc_resource.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_pacman.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_pacman.cpp moc_star.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_pacman.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_pacman.cpp moc_star.cpp
 moc_mainwindow.cpp: ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -609,6 +615,7 @@ moc_mainwindow.cpp: ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../Lab5/star.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
@@ -623,6 +630,15 @@ moc_pacman.cpp: ../Lab5/pacman.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc
 	/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=13 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang -I/Users/mariadelmar/Desktop/UdeA/SegundoSemestre/Info2/Labs/Lab5/Lab5 -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mariadelmar/Qt/6.2.1/macos/lib ../Lab5/pacman.h -o moc_pacman.cpp
+
+moc_star.cpp: ../Lab5/star.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc
+	/Users/mariadelmar/Qt/6.2.1/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=199711L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=13 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/mariadelmar/Qt/6.2.1/macos/mkspecs/macx-clang -I/Users/mariadelmar/Desktop/UdeA/SegundoSemestre/Info2/Labs/Lab5/Lab5 -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtGui.framework/Headers -I/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/13.0.0/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/mariadelmar/Qt/6.2.1/macos/lib ../Lab5/star.h -o moc_star.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -660,6 +676,7 @@ main.o: ../Lab5/main.cpp ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../Lab5/star.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
@@ -680,6 +697,7 @@ mainwindow.o: ../Lab5/mainwindow.cpp ../Lab5/mainwindow.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		../Lab5/star.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QTimer \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qtimer.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsRectItem \
@@ -694,6 +712,14 @@ pacman.o: ../Lab5/pacman.cpp ../Lab5/pacman.h \
 		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o pacman.o ../Lab5/pacman.cpp
 
+star.o: ../Lab5/star.cpp ../Lab5/star.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsPixmapItem \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/mariadelmar/Qt/6.2.1/macos/lib/QtWidgets.framework/Headers/QGraphicsItem
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o star.o ../Lab5/star.cpp
+
 qrc_resource.o: qrc_resource.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_resource.o qrc_resource.cpp
 
@@ -702,6 +728,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_pacman.o: moc_pacman.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_pacman.o moc_pacman.cpp
+
+moc_star.o: moc_star.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_star.o moc_star.cpp
 
 ####### Install
 

@@ -18,16 +18,18 @@ MainWindow::MainWindow(QWidget *parent)
     //Creacion de barras
     for(int i=0;i<numBarras;i++){ //inicializacion de barras
         map.push_back(new QGraphicsRectItem(-(barras[i][0])/2,-(barras[i][1])/2,barras[i][0],barras[i][1]));
-        scene->addItem(map[i]);
+        //scene->addItem(map[i]);
         map[i]->setPos(barras[i][2],barras[i][3]);
 
     //Estrella
-    star->setPixmap(QPixmap(":/pacmans/estrella.png"));
-    stars.assign(1,star);
-    for (int i=0;i<1;i++){
-        stars[i]->setPos(24,24);
+    for (int i=0;i<10;i++){
+        stars.push_back(new star());
         scene->addItem(stars[i]);
+        stars[i]->setPos(posStar[i][0],posStar[i][1]);
     }
+    //Texto
+    highScore=scene->addText(text);
+    highScore->setPos(2,2);
     //timer=new QTimer;
     //connect(timer,SIGNAL(timeout()),this,SLOT(hmov()));
     //timer->stop();
@@ -87,12 +89,12 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
     if (event->key()==Qt::Key_W && !col_W){
         if (player->getY()<=(32)) player->posicion(288,(608-32));
         switch (prev_key){
-        case Qt::Key_D:
+        /*case Qt::Key_D:
             player->setY(player->getY()-int(vel*0.5));
             player->setX(player->getX()+int(vel*0.5));
             prev_key=Qt::Key_D;
             break;
-        /*case Qt::Key_A:
+        case Qt::Key_A:
             player->setY(player->getY()-int(vel*0.7));
             player->setX(player->getX()-int(vel*0.7));
             prev_key=Qt::Key_A;
@@ -125,7 +127,22 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
 
     player->animacion();
     player->posicion();
-    /*//COLSIONES DE BARRAS
+    //colision con estrellas
+    scene->removeItem(highScore);
+    text=QString("HIGH SCORE: %1").arg(score);
+    highScore=scene->addText(text);
+    for (int i=0;i<10;i++){
+        if(player->collidesWithItem(stars[i])){
+            scene->removeItem(stars[i]);
+            score++;
+            stars[i]=0;
+            //Texto
+            scene->removeItem(highScore);
+            text=QString("HIGH SCORE: %1").arg(score);
+            highScore=scene->addText(text);
+        }
+    }
+    //COLSIONES DE BARRAS
     for (int i=0;i<numBarras;i++){
     if (player->collidesWithItem(map[i])){
         switch(event->key()){
@@ -159,7 +176,7 @@ void MainWindow::keyPressEvent(QKeyEvent *event) //Teclas
         col_S=false;
         col_W=false;
     }
-    caseBreak=false;*/
+    caseBreak=false;
 }
 /* REVISAR MOV CON TIMER
 void MainWindow::hmov()

@@ -5,9 +5,12 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include "pacman.h"
+#include "star.h"
 #include <QTimer>
 #include <QGraphicsRectItem>
 #include <vector>
+#include <QGraphicsTextItem>
+#include <QString>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -29,9 +32,12 @@ private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
     pacman *player;
-    QGraphicsPixmapItem *star;
     std::vector<QGraphicsPixmapItem*>stars;
-    std::vector <std::vector <int>> posStar;
+    std::vector <std::vector <int>> posStar={{44,76},{332,300},{524,204},{332,44},{588,492},
+                                             {140,492},{44,268},{588,364},{300,428},{44,556}};
+    int score=0;
+    QString text;
+    QGraphicsTextItem *highScore;
     int numBarras=48;
     int vel=8;
     QTimer *timer;

@@ -11,11 +11,13 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    pacman.cpp
+    pacman.cpp \
+    star.cpp
 
 HEADERS += \
     mainwindow.h \
-    pacman.h
+    pacman.h \
+    star.h
 
 FORMS += \
     mainwindow.ui
